@@ -1,0 +1,41 @@
+<!doctype html>
+<div style="margin-left: 25%; ">
+<div style='text-align: left;'>
+<a  href="{{ url_for('create') }}">Add Bookmark</a>
+</div>
+
+<h4 style="padding-left:20%;" >Bookmark List</h4>
+<div >
+<table>
+  <tr>
+    <th>TITLE</th><th></th>
+    <th>URL</th><th></th>
+    <th>NOTES</th><th></th>
+    <th>DATE ADDED</th><th></th>
+    <th></th>
+  </tr>
+  {% for b in bookmark %}
+  <tr>
+    
+    <td> {{ b['title'] }} </td>
+    <td></td>
+    <td> {{ b['url'] }} </td>
+    <td></td>
+    <td> {{ b['notes'] }} </td>
+    <td></td>
+    <td> {{ b['date_added'] }} </td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td> <a  href="{{ url_for('update', id=b['id']) }}">Edit</a></td>   
+    <td></td>
+    <td> 
+      <form action="{{ url_for('delete', id=b['id']) }}" method="post">
+        <input type="submit" value="Delete"  onclick="return confirm('Are you sure?');">
+      </form>      
+    </td>  
+  </tr>
+  {% endfor %}
+</table>
+</div>
+</div>

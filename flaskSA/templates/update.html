@@ -1,0 +1,16 @@
+<!doctype html>
+{% block header %}
+  <h4>{% block title %}Update Bookmark{% endblock %}</h4>
+{% endblock %}
+
+{% block content %} 
+  <form method="post">
+    <label for="title">Title:  </label>
+    <input name="title" id="title" value="{{ request.form['title'] or bookmark['title'] }}" required>&nbsp;&nbsp;&nbsp;
+    <label for="body">Url:  </label>
+    <input name="url" id="url" value="{{ request.form['url'] or bookmark['url']}}" required>&nbsp;&nbsp;&nbsp;
+    <label for="notes">Notes:  </label>
+    <input name="notes" id="notes" value="{{ request.form['notes'] or bookmark['notes']}}" >&nbsp;&nbsp;&nbsp;
+    <input type="submit" value="Save">
+  </form>
+{% endblock %}
